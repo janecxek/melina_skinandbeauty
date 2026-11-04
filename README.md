@@ -57,6 +57,6 @@ Für den Vorher/Nachher-Slider das Brauen-Foto in zwei Hälften schneiden und un
 - **Über mich:** `[PLATZHALTER: Ausbildung, Zertifikate, Jahre Erfahrung]`
 - **Bewertungen:** 3× „[Hier echte Kundenbewertung einfügen]“ + `[NAME] · [BEHANDLUNG]`
 - **Domain:** `https://www.melina-skinandbeauty.de` in canonical, hreflang, OG und JSON-LD
-- **Fotos:** Porträt (Hero, Über mich), Philosophie, 6 Behandlungskarten, Brauen vorher/nachher, Lashlift, Gesicht, 3 Bewertungs-Ovale, 3 Wissens-Artikel
+- **Fotos:** eingesetzt: Porträt Melina (`melina.jpg`, echt) sowie Stimmungsbilder (KI-generiert) für Hero, Philosophie, 6 Behandlungen, 3 Bewertungs-Ovale, 3 Wissens-Artikel. **Noch offen (nur echte Fotos!):** Brauen vorher/nachher (`BEFORE_AFTER`), Ergebnis-Kacheln Lashlift und Gesicht (`result-lash`, `result-face`)
 - **Logo:** derzeit typografisch nachgebaut, Original-Logo als `images/logo.png` ersetzen
 - **Rechtstexte:** Impressum und Datenschutz vor dem Livegang rechtssicher erstellen lassen

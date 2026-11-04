@@ -855,3 +855,18 @@ p { text-wrap: pretty; }
   margin-top: 32px; padding: 0 .1em .08em;
 }
 @media (min-width: 1024px) { .footer__mark { font-size: clamp(110px, 21vw, 360px); } }
+
+/* ---------- Photo framing ---------- */
+.about__media .media > img { object-position: 78% 30%; }
+.philo__media .media > img { object-position: 45% 30%; }
+.tcard > img { object-position: 70% 40%; }
+.tcard--a > img { object-position: 60% 30%; }
+.rcard__oval > img { object-position: center; }
+.media--hero > img { object-position: 75% 35%; }
+@media (max-width: 767px) { .media--hero > img { object-position: 82% 30%; } }
+
+/* hero stays black & white; colour-on-hover only with a real mouse */
+.media--hero:hover > img { filter: grayscale(1) contrast(1.03); transform: none; }
+@media (hover: none) {
+  .media:hover > img, .tcard:hover > img { filter: grayscale(1) contrast(1.03); transform: none; }
+}

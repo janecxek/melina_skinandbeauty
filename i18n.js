@@ -43,6 +43,7 @@ window.I18N = {
     "hero.cta2": "Behandlungen entdecken",
     "hero.follow": "Folge mir auf Instagram",
     "hero.scroll": "Scrollen",
+    "hero.alt": "Natürlich strahlende, gepflegte Haut – Kosmetikstudio Melina Skin & Beauty in Gelsenkirchen",
 
     /* ---------- Über mich ---------- */
     "about.label": "Certified Beauty Expert",
@@ -280,6 +281,7 @@ window.I18N = {
     "hero.cta2": "Explore treatments",
     "hero.follow": "Follow me on Instagram",
     "hero.scroll": "Scroll",
+    "hero.alt": "Naturally radiant, well-cared-for skin – Melina Skin & Beauty studio in Gelsenkirchen",
 
     /* ---------- About ---------- */
     "about.label": "Certified Beauty Expert",

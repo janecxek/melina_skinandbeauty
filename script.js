@@ -11,23 +11,23 @@ const MAP_EMBED_URL = "https://www.google.com/maps?q=Gelsenkirchen&output=embed"
 /* ---------- Photos: drop files into /images and add the file name here ----------
    Every slot shows an elegant "Foto folgt / Photo coming soon" placeholder while null. */
 const IMAGES = {
-  hero: null,                 // e.g. "images/melina-portrait.jpg" (black & white portrait)
-  about: null,                // e.g. "images/melina-portrait.jpg"
-  philosophy: null,           // e.g. "images/facial.jpg"
-  "treat-facial": null,
-  "treat-microneedling": null,
-  "treat-bbglow": null,
-  "treat-browlift": null,
-  "treat-lashlift": null,
-  "treat-lashext": null,
-  "result-lash": null,        // e.g. "images/lashlift.jpg"
-  "result-face": null,        // e.g. "images/facial.jpg"
-  "review-1": null,
-  "review-2": null,
-  "review-3": null,
-  "journal-1": null,
-  "journal-2": null,
-  "journal-3": null
+  hero: "images/hero.jpg",                       // full-screen background (mood photo, AI-generated)
+  about: "images/melina.jpg",                    // Melina's real portrait
+  philosophy: "images/philosophy.jpg",
+  "treat-facial": "images/treat-facial.jpg",
+  "treat-microneedling": "images/treat-microneedling.jpg",
+  "treat-bbglow": "images/treat-bbglow.jpg",
+  "treat-browlift": "images/treat-browlift.jpg",
+  "treat-lashlift": "images/treat-lashlift.jpg",
+  "treat-lashext": "images/treat-lashext.jpg",
+  "result-lash": null,        // REAL client result only, e.g. "images/result-lashlift.jpg"
+  "result-face": null,        // REAL client result only, e.g. "images/result-facial.jpg"
+  "review-1": "images/review-1.jpg",
+  "review-2": "images/review-2.jpg",
+  "review-3": "images/review-3.jpg",
+  "journal-1": "images/journal-1.jpg",
+  "journal-2": "images/journal-2.jpg",
+  "journal-3": "images/journal-3.jpg"
 };
 /* Before/after slider: the brow photo, split into two halves */
 const BEFORE_AFTER = {
