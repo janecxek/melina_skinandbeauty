@@ -870,3 +870,125 @@ p { text-wrap: pretty; }
 @media (hover: none) {
   .media:hover > img, .tcard:hover > img { filter: grayscale(1) contrast(1.03); transform: none; }
 }
+
+/* =========================================================
+   DEVICE TUNING (very small phones · landscape phones ·
+   short laptops · large & ultra-wide screens)
+   ========================================================= */
+
+/* hero note never leaves the screen on phones */
+@media (max-width: 767px) {
+  .hero__note { white-space: normal; margin: 0 0 12px auto; max-width: 92%; text-align: right; font-size: clamp(24px, 8vw, 32px); }
+}
+
+/* very narrow phones (Galaxy Fold, iPhone SE 1st gen) */
+@media (max-width: 359px) {
+  :root { --gutter: 14px; --nav-h: 54px; }
+  .nav__bar { padding: 0 4px 0 12px; gap: 8px; }
+  .nav__actions { gap: 6px; }
+  .logo--nav .logo__script { font-size: 30px; }
+  .lang-switch { gap: 4px; }
+  .burger { width: 36px; }
+  .hero__title { font-size: 36px; }
+  .hero .label { font-size: 8.5px; letter-spacing: .18em; }
+  .h2 { font-size: 27px; }
+  .cta__title { font-size: 38px; }
+  .btn { padding-inline: 16px; letter-spacing: .14em; }
+  .tcard .h3 { font-size: 21px; }
+  .plist__name { font-size: 17px; }
+  .mmenu__links a { font-size: 27px; }
+}
+
+/* phones in landscape & other short screens */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero { min-height: 0; padding: calc(var(--nav-h) + 40px) 0 44px; }
+  .hero__title { font-size: 40px; }
+  .hero__sub { font-size: 15px; margin-bottom: 20px; }
+  .hero__note { font-size: 26px; position: static; margin: 0 0 6px 0; }
+  .hero__ig { margin-top: 18px; }
+  .hero__scroll { display: none; }
+  .hero__arch { display: none; }
+  .btn { min-height: 44px; }
+  .mmenu { padding-top: calc(var(--nav-h) + 20px); }
+  .mmenu__links a { font-size: 24px; padding: 10px 0; }
+  .mmenu__inner { gap: 24px; }
+  .rcard { position: relative; top: auto; }          /* no sticky stacking on low screens */
+  .prices__intro { position: static; }
+  .sticky-cta { min-height: 48px; }
+}
+@media (max-height: 760px) and (min-width: 768px) { .hero__scroll { display: none; } }
+
+/* laptops with a low screen (1280×720, 1366×768) */
+@media (min-width: 1024px) and (max-height: 820px) {
+  .hero { padding-top: calc(var(--nav-h) + 92px); padding-bottom: 64px; }
+  .hero__title { font-size: 64px; }
+  .hero__note { top: -54px; font-size: 34px; }
+}
+
+/* large screens */
+@media (min-width: 1680px) {
+  :root { --maxw: 1320px; --sec-y: 160px; }
+  body { font-size: 17px; }
+  .hero__title { font-size: 92px; }
+  .hero__sub { font-size: 19px; max-width: 520px; }
+  .hero__copy { max-width: 760px; }
+  .hero__note { left: 380px; top: -70px; font-size: 46px; }
+  .h2 { font-size: 50px; }
+  .h3 { font-size: 24px; }
+  .label, .mono, .nav__links a, .lang-switch button { font-size: 11.5px; }
+  .btn { font-size: 12.5px; min-height: 54px; padding: 16px 30px; }
+  .btn--sm { min-height: 44px; font-size: 11.5px; }
+  :root { --nav-h: 68px; }
+  .logo--nav .logo__script { font-size: 44px; }
+  .nav__links { gap: 36px; }
+  .bento { grid-auto-rows: 340px; }
+  .tcard .h3 { font-size: 27px; } .tcard--a .h3 { font-size: 32px; }
+  .tcard p { font-size: 15px; }
+  .rcard { min-height: 500px; } .rcard__text { font-size: 32px; }
+  .step__num { font-size: 120px; }
+  .cta__title { font-size: 88px; }
+  .plist__name { font-size: 24px; }
+  .acc__btn { font-size: 20px; }
+  .accordion { max-width: 800px; }
+}
+/* ultra-wide / 4K-scaled screens */
+@media (min-width: 2200px) {
+  :root { --maxw: 1560px; --sec-y: 190px; --nav-h: 76px; }
+  body { font-size: 19px; }
+  .hero__title { font-size: 112px; }
+  .hero__sub { font-size: 21px; max-width: 620px; }
+  .hero__copy { max-width: 900px; }
+  .hero__note { left: 460px; top: -84px; font-size: 54px; }
+  .h2 { font-size: 60px; }
+  .h3 { font-size: 28px; }
+  .label, .mono, .nav__links a, .lang-switch button { font-size: 13px; }
+  .btn { font-size: 14px; min-height: 60px; padding: 18px 36px; }
+  .btn--sm { min-height: 50px; font-size: 13px; }
+  .logo--nav .logo__script { font-size: 50px; }
+  .nav__links { gap: 44px; }
+  .bento { grid-auto-rows: 400px; }
+  .tcard .h3 { font-size: 32px; } .tcard--a .h3 { font-size: 38px; }
+  .tcard p { font-size: 17px; }
+  .tcard__icon { width: 110px; height: 110px; }
+  .rcard { min-height: 580px; } .rcard__text { font-size: 38px; }
+  .step__num { font-size: 140px; }
+  .cta__title { font-size: 104px; }
+  .plist__name { font-size: 28px; }
+  .acc__btn { font-size: 23px; padding: 24px 28px; }
+  .acc__panel p { padding: 0 28px 26px; }
+  .accordion { max-width: 940px; }
+  .glass-card li { font-size: 12px; }
+  .legal__inner { max-width: 900px; }
+}
+
+/* touch devices: bigger tap targets */
+@media (hover: none) and (pointer: coarse) {
+  .lang-switch button { padding: 10px 4px 8px .24em; }
+  .footer__cols a, .info-list a { display: inline-block; padding-block: 4px; }
+}
+@media (max-width: 767px), (max-height: 520px) and (orientation: landscape) {
+  .hero__note { width: fit-content; }
+}
+@media (max-height: 520px) and (orientation: landscape) { .hero__note { margin-top: 6px; } }
+@media (min-width: 1680px) { .tcard__body { max-width: 480px; } }
+@media (min-width: 2200px) { .tcard__body { max-width: 560px; } }
