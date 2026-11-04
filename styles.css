@@ -839,3 +839,19 @@ p { text-wrap: pretty; }
 }
 .footer__tag { max-width: 340px; }
 .rcard__quote::before { font-size: 180px; top: -6px; color: rgba(200,198,194,.55); }
+
+/* ---------- Logo lettering: never clipped ---------- */
+.logo__script { line-height: 1.15; padding: .08em .12em .04em .06em; }
+.logo--nav .logo__script { font-size: 38px; line-height: 1.1; padding-top: .1em; }
+@media (min-width: 768px) { .logo--nav .logo__script { font-size: 40px; } }
+
+.hero__watermark {
+  right: var(--gutter); bottom: 1.5vw; left: auto;
+  font-size: clamp(120px, 25vw, 400px); line-height: 1.25; padding: 0 .12em;
+}
+.footer__mark {
+  height: auto; overflow: visible; line-height: 1.3;
+  font-size: clamp(110px, 25vw, 360px);
+  margin-top: 32px; padding: 0 .1em .08em;
+}
+@media (min-width: 1024px) { .footer__mark { font-size: clamp(110px, 21vw, 360px); } }

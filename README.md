@@ -21,6 +21,7 @@ node tools/check-i18n.js      # prüft, dass jeder Text-Key in DE und EN existie
 | `impressum.html`, `datenschutz.html` | Rechtliche Seiten (Platzhalter, DE/EN) |
 | `images/` | Logo (typografisch), Favicon, OG-Bild, Brauen-Illustration für den Slider |
 | `screenshots/` | QA-Screenshots 1440 px und 390 px, jeweils DE und EN |
+| `PROMPTY-ZDJECIA.md` | Prompts (ChatGPT) für die fehlenden Bilder |
 
 ## Abschnitte (NAVARA → Melina)
 

@@ -240,6 +240,8 @@ const BEFORE_AFTER = {
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     map.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+    const heroEl = document.getElementById("top");
+    if (heroEl) io.observe(heroEl); // hero has no link → clears the underline
   }
 
   /* ===================== Reveal on scroll ===================== */
@@ -352,6 +354,94 @@ const BEFORE_AFTER = {
       box.appendChild(iframe);
     });
   }
+
+  /* ===================== Smooth scroll =====================
+     Inertial wheel scrolling on desktop (native touch scrolling stays on phones)
+     + eased anchor scrolling everywhere. Off with prefers-reduced-motion. */
+  const smooth = (() => {
+    if (reduceMotion) return null;
+    root.style.scrollBehavior = "auto"; // JS takes over; CSS smooth would fight it
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const maxY = () => document.documentElement.scrollHeight - window.innerHeight;
+    const clamp = (v) => Math.max(0, Math.min(maxY(), v));
+    let current = window.scrollY;
+    let target = current;
+    let raf = null;
+    let tween = null; // { from, to, start, dur }
+    let selfScroll = false;
+    const easeOutExpo = (x) => (x === 1 ? 1 : 1 - Math.pow(2, -10 * x));
+
+    function frame(now) {
+      raf = null;
+      let next;
+      if (tween) {
+        const k = Math.min(1, (now - tween.start) / tween.dur);
+        next = tween.from + (tween.to - tween.from) * easeOutExpo(k);
+        if (k >= 1) { tween = null; next = target; }
+      } else {
+        next = current + (target - current) * 0.1;
+        if (Math.abs(target - next) < 0.5) next = target;
+      }
+      current = next;
+      selfScroll = true;
+      window.scrollTo(0, current);
+      if (current !== target || tween) raf = requestAnimationFrame(frame);
+    }
+    const run = () => { if (!raf) raf = requestAnimationFrame(frame); };
+
+    // keep in sync with scrollbar drags, keyboard, find-in-page, touch …
+    window.addEventListener("scroll", () => {
+      if (selfScroll) { selfScroll = false; return; }
+      if (!raf) { current = target = window.scrollY; }
+    }, { passive: true });
+
+    function scrollableParent(el) {
+      for (; el && el !== document.body && el !== document.documentElement; el = el.parentElement) {
+        const oy = getComputedStyle(el).overflowY;
+        if ((oy === "auto" || oy === "scroll") && el.scrollHeight > el.clientHeight) return el;
+      }
+      return null;
+    }
+
+    if (fine) {
+      window.addEventListener("wheel", (e) => {
+        if (e.ctrlKey || e.defaultPrevented) return;                  // pinch-zoom
+        if (document.body.style.overflow === "hidden") return;        // menu open
+        if (scrollableParent(e.target)) return;                       // inner scroll areas
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;          // horizontal gestures
+        e.preventDefault();
+        const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1;
+        if (tween) { tween = null; current = window.scrollY; }
+        if (!raf) current = window.scrollY;
+        target = clamp(target + e.deltaY * unit);
+        run();
+      }, { passive: false });
+    }
+
+    function to(y, dur) {
+      target = clamp(y);
+      current = window.scrollY;
+      const dist = Math.abs(target - current);
+      tween = { from: current, to: target, start: performance.now(), dur: dur || Math.min(1600, 600 + dist * 0.25) };
+      run();
+    }
+    return { to };
+  })();
+
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey) return;
+    const id = a.getAttribute("href").slice(1);
+    const el = id ? document.getElementById(id) : null;
+    if (!el && id !== "top") return;
+    e.preventDefault();
+    const offset = id === "top" ? 0 : 88;
+    const y = el ? el.getBoundingClientRect().top + window.scrollY - offset : 0;
+    if (smooth) smooth.to(y); else window.scrollTo(0, y);
+    try { history.replaceState(null, "", location.pathname + location.search + "#" + id); } catch (err) { /* ignore */ }
+    if (el && !a.classList.contains("skip-link")) return;
+    if (el) { el.setAttribute("tabindex", "-1"); el.focus({ preventScroll: true }); }
+  });
 
   /* expose for QA */
   window.__melina = { setLang, t, get lang() { return currentLang; } };
