@@ -992,3 +992,31 @@ p { text-wrap: pretty; }
 @media (max-height: 520px) and (orientation: landscape) { .hero__note { margin-top: 6px; } }
 @media (min-width: 1680px) { .tcard__body { max-width: 480px; } }
 @media (min-width: 2200px) { .tcard__body { max-width: 560px; } }
+
+/* =========================================================
+   ROUND 5 – minimal hero · full About photo · colour photos
+   ========================================================= */
+
+/* hero: fewer words, text sits a bit lower */
+.hero { align-items: flex-end; padding-bottom: clamp(72px, 15vh, 170px); }
+.hero__title { margin-bottom: 20px; }
+.hero__sub { max-width: none; }
+@media (min-width: 768px) {
+  .hero__copy { max-width: none; }
+  .hero__sub { white-space: nowrap; }          /* one line in DE and EN */
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero { padding-bottom: 36px; }
+  .hero__sub { white-space: normal; }
+}
+
+/* About: whole photo visible (3:4 like the original), no overlay card */
+.about__media .media { aspect-ratio: 3 / 4; max-height: 760px; }
+.about__media .media > img { object-position: center; }
+@media (min-width: 768px) and (max-width: 1023px) { .about__media .media { aspect-ratio: 4 / 5; } }
+
+/* photos in colour – warmth and soul; gentle zoom stays on hover */
+.media > img, .tcard > img, .media--hero > img,
+.media:hover > img, .tcard:hover > img, .media--hero:hover > img { filter: none; }
+@media (hover: none) { .media:hover > img, .tcard:hover > img { filter: none; } }
+.media--hero > img { filter: saturate(.92) contrast(1.02); }

@@ -213,16 +213,9 @@ const BEFORE_AFTER = {
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") toggleMenu(false); });
   window.addEventListener("resize", () => { if (window.innerWidth >= 1024) toggleMenu(false); });
 
-  let lastY = window.scrollY;
+  // navbar stays visible (as in the template); it only gets a solid background once scrolled
   function onScroll() {
-    const y = window.scrollY;
-    if (nav) {
-      nav.classList.toggle("is-scrolled", y > 30);
-      const menuOpen = burger && burger.getAttribute("aria-expanded") === "true";
-      nav.classList.toggle("is-hidden", !menuOpen && y > 600 && y > lastY + 4);
-      if (y < lastY - 4) nav.classList.remove("is-hidden");
-    }
-    lastY = y;
+    if (nav) nav.classList.toggle("is-scrolled", window.scrollY > 30);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -361,7 +354,7 @@ const BEFORE_AFTER = {
   const smooth = (() => {
     if (reduceMotion) return null;
     root.style.scrollBehavior = "auto"; // JS takes over; CSS smooth would fight it
-    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const fine = !window.matchMedia("(hover: none) and (pointer: coarse)").matches; // phones/tablets keep native touch scrolling
     const maxY = () => document.documentElement.scrollHeight - window.innerHeight;
     const clamp = (v) => Math.max(0, Math.min(maxY(), v));
     let current = window.scrollY;
@@ -371,15 +364,18 @@ const BEFORE_AFTER = {
     let selfScroll = false;
     const easeOutExpo = (x) => (x === 1 ? 1 : 1 - Math.pow(2, -10 * x));
 
+    let last = 0;
     function frame(now) {
       raf = null;
+      const dt = last ? Math.min(3, (now - last) / 16.667) : 1; // frame-rate independent
+      last = now;
       let next;
       if (tween) {
         const k = Math.min(1, (now - tween.start) / tween.dur);
         next = tween.from + (tween.to - tween.from) * easeOutExpo(k);
         if (k >= 1) { tween = null; next = target; }
       } else {
-        next = current + (target - current) * 0.1;
+        next = current + (target - current) * (1 - Math.pow(1 - 0.085, dt));
         if (Math.abs(target - next) < 0.5) next = target;
       }
       current = next;
@@ -387,7 +383,7 @@ const BEFORE_AFTER = {
       window.scrollTo(0, current);
       if (current !== target || tween) raf = requestAnimationFrame(frame);
     }
-    const run = () => { if (!raf) raf = requestAnimationFrame(frame); };
+    const run = () => { if (!raf) { last = 0; raf = requestAnimationFrame(frame); } };
 
     // keep in sync with scrollbar drags, keyboard, find-in-page, touch …
     window.addEventListener("scroll", () => {
