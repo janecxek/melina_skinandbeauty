@@ -1216,3 +1216,10 @@ p { text-wrap: pretty; }
 .nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .burger span { background: var(--white); }
 .nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .nav__cta { background: var(--paper); color: var(--ink); }
 .nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .nav__cta::before { background: var(--white); }
+
+/* scrolled navbar: solid light bar everywhere (no grey glass over dark sections) */
+.nav.is-scrolled .nav__bar, .nav.nav--solid .nav__bar, .nav.menu-open .nav__bar {
+  background: rgba(246, 244, 241, .97);
+  border-color: rgba(18, 18, 18, .06);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
