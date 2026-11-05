@@ -187,6 +187,7 @@ const IMAGES = {
     const open = typeof force === "boolean" ? force : burger.getAttribute("aria-expanded") !== "true";
     burger.setAttribute("aria-expanded", String(open));
     menu.classList.toggle("is-open", open);
+    if (nav) nav.classList.toggle("menu-open", open);
     menu.setAttribute("aria-hidden", String(!open));
     if (open) menu.removeAttribute("inert"); else menu.setAttribute("inert", "");
     document.body.style.overflow = open ? "hidden" : "";
