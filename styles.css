@@ -1187,3 +1187,39 @@ p { text-wrap: pretty; }
 .cnav__btn:hover:not(:disabled) { background: #3a3937; border-color: #3a3937; color: var(--white); transform: translateY(-2px); }
 .cnav__btn:disabled { opacity: 1; background: transparent; color: rgba(18,18,18,.35); border-color: rgba(18,18,18,.25); box-shadow: none; }
 @media (min-width: 1680px) { .cnav__btn { width: 62px; height: 62px; } }
+
+/* =========================================================
+   ROUND 10 – transparent navbar
+   over the hero: fully transparent, white logo & links
+   after scrolling: frosted glass so it stays readable
+   ========================================================= */
+.nav__bar {
+  background: rgba(246, 244, 241, .55);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4); backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, .45);
+  transition: background-color .6s var(--ease), border-color .6s var(--ease), box-shadow .6s var(--ease), -webkit-backdrop-filter .6s, backdrop-filter .6s;
+}
+.nav.is-scrolled .nav__bar { background: rgba(246, 244, 241, .62); box-shadow: 0 10px 40px -18px rgba(18,18,18,.25); }
+.nav .logo, .nav__links a, .lang-switch button, .lang-switch { transition: color .5s var(--ease), border-color .5s var(--ease); }
+.burger span { transition: transform .45s var(--ease), background-color .5s var(--ease); }
+
+/* top of the page (over the dark hero) */
+.nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .nav__bar {
+  background: transparent; border-color: transparent; box-shadow: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+.nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .logo,
+.nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .nav__links a { color: var(--white); }
+.nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .lang-switch { color: rgba(255,255,255,.35); }
+.nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .lang-switch button { color: rgba(255,255,255,.6); }
+.nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .lang-switch button[aria-pressed="true"] { color: var(--white); border-bottom-color: var(--white); }
+.nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .burger span { background: var(--white); }
+.nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .nav__cta { background: var(--paper); color: var(--ink); }
+.nav:not(.is-scrolled):not(.nav--solid):not(.menu-open) .nav__cta::before { background: var(--white); }
+
+/* scrolled navbar: solid light bar everywhere (no grey glass over dark sections) */
+.nav.is-scrolled .nav__bar, .nav.nav--solid .nav__bar, .nav.menu-open .nav__bar {
+  background: rgba(246, 244, 241, .97);
+  border-color: rgba(18, 18, 18, .06);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
