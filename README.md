@@ -31,7 +31,7 @@ node tools/check-i18n.js      # prüft, dass jeder Text-Key in DE und EN existie
 | 1 | Hero | Vollbild-Foto, „Deine Haut. Unsere Expertise.“, Untertitel, 2 Buttons |
 | 2 | Über mich | Porträt Melina, Text in der Ich-Form, Signatur |
 | 3 | Philosophie (dunkel) | Zitat, 01/02/03-Werte, „Glow like you mean it“ |
-| 4 | Behandlungen | horizontales Karussell: 6 Karten mit Foto, Beschreibung, Kategorie und „ab [PREIS] €“ (Pfeile, Maus ziehen, Wischen) |
+| 4 | Behandlungen | horizontales Karussell: 6 Karten mit Foto, Beschreibung, Kategorie und „ab [PREIS] €“; Pfeile unter den Karten, Maus ziehen, Wischen |
 | 5 | Preise (dunkel) | Preisliste mit 9 Positionen |
 | 6 | Bewertungen | 3 **Beispiel**-Bewertungen (gestapelte Karten) |
 | 7 | FAQ | Akkordeon mit 6 Fragen |
