@@ -23,29 +23,26 @@ node tools/check-i18n.js      # prüft, dass jeder Text-Key in DE und EN existie
 | `screenshots/` | QA-Screenshots 1440 px und 390 px, jeweils DE und EN |
 | `PROMPTY-ZDJECIA.md` | Prompts (ChatGPT) für die fehlenden Bilder |
 
-## Abschnitte (NAVARA → Melina)
+## Abschnitte
 
-| # | NAVARA | Melina |
+| # | Abschnitt | Inhalt |
 |---|---|---|
-| – | Schwebende Navigationsleiste | Logo, 5 Links, DE/EN, „Termin anfragen“, Burger-Menü auf Mobile |
-| 1 | Hero mit Vollbild-Foto | Hero: „Deine Haut. Unsere Expertise.“, Handschrift-Notiz, Porträt-Bogen (bis das Foto da ist) |
-| 2 | About (Bild + Glass-Card, Text) | Über mich: Certified Beauty Expert, Text in der Ich-Form, Signatur |
-| 3 | Benefits (dunkel, 3 Spalten) | Philosophie: Zitat, 01/02/03-Werte, „Glow like you mean it“ |
-| 4 | Treatments (Bento-Raster) | 6 Behandlungen mit Linien-Icons und „ab [PREIS] €“ + Make-up-Hinweis |
-| 5 | Results + Vorher/Nachher | Ergebnisse: Browlift-Slider, Lashlift- und Gesichts-Kacheln, Instagram-Link |
-| + | – | Preise (dunkel, Preisliste) |
-| + | – | Ablauf in 3 Schritten (01 / 02 / 03) |
-| 6 | Testimonials (gestapelte Karten) | Bewertungen (Platzhalter, keine erfundenen Bewertungen) |
-| 7 | Journal | Wissen / Skin Notes (3 Artikel-Teaser) |
-| 8 | FAQ | FAQ-Akkordeon (6 Fragen) |
-| 9 | CTA (dunkel) + Footer | Kontakt: „Bereit für deinen Glow?“, Adresse, Zeiten, Karte (2-Klick), Footer |
+| – | Navigation | Logo „Melina“, Behandlungen · Über mich · Preise · Bewertungen · Kontakt, DE/EN, „Termin anfragen“, Burger-Menü auf Mobile |
+| 1 | Hero | Vollbild-Foto, „Deine Haut. Unsere Expertise.“, Untertitel, 2 Buttons |
+| 2 | Über mich | Porträt Melina, Text in der Ich-Form, Signatur |
+| 3 | Philosophie (dunkel) | Zitat, 01/02/03-Werte, „Glow like you mean it“ |
+| 4 | Behandlungen | horizontales Karussell: 6 Karten mit Foto, Beschreibung, Kategorie und „ab [PREIS] €“ (Pfeile, Maus ziehen, Wischen) |
+| 5 | Preise (dunkel) | Preisliste mit 9 Positionen |
+| 6 | Bewertungen | 3 **Beispiel**-Bewertungen (gestapelte Karten) |
+| 7 | FAQ | Akkordeon mit 6 Fragen |
+| 8 | Kontakt (dunkel) | „Bereit für deinen Glow?“, Adresse, Zeiten, Karte (2-Klick) |
+| – | Footer | Logo, Links, © und DE/EN |
 
 ## Fotos einsetzen
 
 Jeder Bildplatz zeigt bis dahin einen eleganten Platzhalter („Foto folgt“ / „Photo coming soon“).
 Datei nach `images/` legen und den Pfad in `script.js` → `IMAGES` eintragen, z. B. `hero: "images/melina-portrait.jpg"`.
-Die Fotos werden automatisch schwarz-weiß dargestellt und werden beim Hover farbig.
-Für den Vorher/Nachher-Slider das Brauen-Foto in zwei Hälften schneiden und unter `BEFORE_AFTER` eintragen.
+Die Fotos werden in Farbe gezeigt und zoomen beim Hover leicht heran.
 
 ## Platzhalter, die noch fehlen
 
@@ -55,8 +52,8 @@ Für den Vorher/Nachher-Slider das Brauen-Foto in zwei Hälften schneiden und un
 - **Öffnungszeiten:** `contact.hours`
 - **Telefon, E-Mail, Name der Inhaberin, USt-ID:** Impressum, Datenschutz, JSON-LD (`telephone`, `priceRange`)
 - **Über mich:** `[PLATZHALTER: Ausbildung, Zertifikate, Jahre Erfahrung]`
-- **Bewertungen:** 3× „[Hier echte Kundenbewertung einfügen]“ + `[NAME] · [BEHANDLUNG]`
+- **Bewertungen:** die 3 Bewertungen sind **Beispieltexte für den Entwurf**. Vor dem Livegang durch echte Kundenbewertungen ersetzen (erfundene Bewertungen sind in Deutschland verboten, § 5b UWG) – `i18n.js` → `reviews.1–3`
 - **Domain:** `https://www.melina-skinandbeauty.de` in canonical, hreflang, OG und JSON-LD
-- **Fotos:** eingesetzt: Porträt Melina (`melina.jpg`, echt) sowie Stimmungsbilder (KI-generiert) für Hero, Philosophie, 6 Behandlungen, 3 Bewertungs-Ovale, 3 Wissens-Artikel. **Noch offen (nur echte Fotos!):** Brauen vorher/nachher (`BEFORE_AFTER`), Ergebnis-Kacheln Lashlift und Gesicht (`result-lash`, `result-face`)
+- **Fotos:** alle Plätze sind belegt (Melina = echtes Porträt, übrige = KI-Stimmungsbilder); für echte Behandlungsfotos einfach die Dateien in `images/` ersetzen
 - **Logo:** derzeit typografisch nachgebaut, Original-Logo als `images/logo.png` ersetzen
 - **Rechtstexte:** Impressum und Datenschutz vor dem Livegang rechtssicher erstellen lassen

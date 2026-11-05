@@ -20,19 +20,9 @@ const IMAGES = {
   "treat-browlift": "images/treat-browlift.jpg",
   "treat-lashlift": "images/treat-lashlift.jpg",
   "treat-lashext": "images/treat-lashext.jpg",
-  "result-lash": null,        // REAL client result only, e.g. "images/result-lashlift.jpg"
-  "result-face": null,        // REAL client result only, e.g. "images/result-facial.jpg"
   "review-1": "images/review-1.jpg",
   "review-2": "images/review-2.jpg",
-  "review-3": "images/review-3.jpg",
-  "journal-1": "images/journal-1.jpg",
-  "journal-2": "images/journal-2.jpg",
-  "journal-3": "images/journal-3.jpg"
-};
-/* Before/after slider: the brow photo, split into two halves */
-const BEFORE_AFTER = {
-  before: null,               // e.g. "images/brows-before.jpg"
-  after: null                 // e.g. "images/brows-after.jpg"
+  "review-3": "images/review-3.jpg"
 };
 
 (function () {
@@ -178,12 +168,6 @@ const BEFORE_AFTER = {
     slot.prepend(img);
     slot.classList.add("has-img");
   });
-  const ba = document.getElementById("ba");
-  if (ba && BEFORE_AFTER.before && BEFORE_AFTER.after) {
-    ba.querySelector('[data-ba="before"]').src = BEFORE_AFTER.before;
-    ba.querySelector('[data-ba="after"]').src = BEFORE_AFTER.after;
-    ba.classList.add("has-photos");
-  }
 
   /* init language (after image slots so their alts get translated too) */
   currentLang = detectLang();
@@ -250,56 +234,59 @@ const BEFORE_AFTER = {
     reveals.forEach((el) => el.classList.add("is-in"));
   }
 
-  /* ===================== Before / after slider ===================== */
-  if (ba) {
-    const handle = ba.querySelector(".ba__handle");
-    let pos = 50;
-    let dragging = false;
-    const set = (p) => {
-      pos = Math.max(0, Math.min(100, p));
-      ba.style.setProperty("--pos", pos + "%");
-      handle.setAttribute("aria-valuenow", String(Math.round(pos)));
+  /* ===================== Treatments carousel ===================== */
+  const ts = document.getElementById("tslider");
+  if (ts) {
+    const prev = document.querySelector('.cnav__btn[data-dir="-1"]');
+    const next = document.querySelector('.cnav__btn[data-dir="1"]');
+    const bar = document.querySelector(".tprogress span");
+    const step = () => {
+      const card = ts.querySelector(".tc");
+      const gap = parseFloat(getComputedStyle(ts.querySelector(".tslider__track")).columnGap) || 16;
+      return card ? card.getBoundingClientRect().width + gap : ts.clientWidth * 0.8;
     };
-    const fromEvent = (e) => {
-      const r = ba.getBoundingClientRect();
-      return ((e.clientX - r.left) / r.width) * 100;
+    const update = () => {
+      const max = ts.scrollWidth - ts.clientWidth;
+      if (prev) prev.disabled = ts.scrollLeft <= 2;
+      if (next) next.disabled = ts.scrollLeft >= max - 2;
+      if (bar) bar.style.transform = `scaleX(${max > 0 ? Math.min(1, (ts.scrollLeft + ts.clientWidth) / ts.scrollWidth) : 1})`;
     };
-    ba.addEventListener("pointerdown", (e) => {
-      if (e.pointerType === "mouse" && e.button !== 0) return;
-      dragging = true;
-      ba.classList.add("is-dragging", "was-used");
-      try { ba.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
-      set(fromEvent(e));
+    [prev, next].forEach((btn) => btn && btn.addEventListener("click", () => {
+      ts.scrollBy({ left: Number(btn.dataset.dir) * step(), behavior: reduceMotion ? "auto" : "smooth" });
+    }));
+    ts.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { ts.scrollBy({ left: step(), behavior: "smooth" }); e.preventDefault(); }
+      if (e.key === "ArrowLeft") { ts.scrollBy({ left: -step(), behavior: "smooth" }); e.preventDefault(); }
     });
-    ba.addEventListener("pointermove", (e) => { if (dragging) set(fromEvent(e)); });
-    const stop = () => { dragging = false; ba.classList.remove("is-dragging"); };
-    ba.addEventListener("pointerup", stop);
-    ba.addEventListener("pointercancel", stop);
-    handle.addEventListener("keydown", (e) => {
-      const step = e.shiftKey ? 10 : 2;
-      if (e.key === "ArrowLeft" || e.key === "ArrowDown") { set(pos - step); e.preventDefault(); }
-      else if (e.key === "ArrowRight" || e.key === "ArrowUp") { set(pos + step); e.preventDefault(); }
-      else if (e.key === "Home") { set(0); e.preventDefault(); }
-      else if (e.key === "End") { set(100); e.preventDefault(); }
-      ba.classList.add("was-used");
+    ts.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+
+    // drag with the mouse on desktop (touch devices swipe natively)
+    let down = false, moved = false, startX = 0, startLeft = 0;
+    ts.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      down = true; moved = false; startX = e.clientX; startLeft = ts.scrollLeft;
     });
-    // gentle intro sweep so visitors notice it is interactive
-    if (!reduceMotion && "IntersectionObserver" in window) {
-      const sio = new IntersectionObserver((entries) => {
-        if (!entries[0].isIntersecting) return;
-        sio.disconnect();
-        if (ba.classList.contains("was-used")) return;
-        const start = performance.now();
-        const anim = (now) => {
-          if (ba.classList.contains("was-used")) return;
-          const k = Math.min(1, (now - start) / 1600);
-          set(50 + Math.sin(k * Math.PI * 2) * 14 * (1 - k));
-          if (k < 1) requestAnimationFrame(anim);
-        };
-        setTimeout(() => requestAnimationFrame(anim), 500);
-      }, { threshold: 0.5 });
-      sio.observe(ba);
-    }
+    window.addEventListener("pointermove", (e) => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (!moved && Math.abs(dx) > 5) { moved = true; ts.classList.add("is-dragging"); }
+      if (moved) ts.scrollLeft = startLeft - dx;
+    });
+    const end = () => {
+      if (!down) return;
+      down = false;
+      if (moved) {
+        ts.classList.remove("is-dragging");
+        const s = step();
+        ts.scrollTo({ left: Math.round(ts.scrollLeft / s) * s, behavior: "smooth" });
+      }
+    };
+    window.addEventListener("pointerup", end);
+    window.addEventListener("pointercancel", end);
+    ts.addEventListener("click", (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    ts.addEventListener("dragstart", (e) => e.preventDefault());
   }
 
   /* ===================== Accordion ===================== */

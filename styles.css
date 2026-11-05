@@ -1020,3 +1020,112 @@ p { text-wrap: pretty; }
 .media:hover > img, .tcard:hover > img, .media--hero:hover > img { filter: none; }
 @media (hover: none) { .media:hover > img, .tcard:hover > img { filter: none; } }
 .media--hero > img { filter: saturate(.92) contrast(1.02); }
+
+/* =========================================================
+   ROUND 6 – treatments carousel · sample reviews · compact footer
+   ========================================================= */
+
+/* ---------- Carousel arrows ---------- */
+.cnav { display: flex; gap: 10px; justify-self: start; }
+.cnav__btn {
+  width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--ink); color: var(--ink); background: transparent;
+  transition: background-color .35s var(--ease), color .35s var(--ease), opacity .35s;
+}
+.cnav__btn--prev .ico { transform: rotate(180deg); }
+.cnav__btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+.cnav__btn:disabled { opacity: .28; cursor: default; }
+@media (min-width: 768px) { .cnav { justify-self: end; } }
+
+/* ---------- Track ---------- */
+.tslider {
+  --edge: max(var(--gutter), (100% - var(--maxw)) / 2);
+  overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: var(--edge);
+  padding: 6px var(--edge) 24px;
+  scrollbar-width: none; -ms-overflow-style: none;
+  cursor: grab; outline: none;
+}
+.tslider::-webkit-scrollbar { display: none; }
+.tslider:focus-visible { box-shadow: inset 0 0 0 1px var(--ink); }
+.tslider.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+.tslider.is-dragging .tc { pointer-events: none; }
+.tslider__track { display: flex; gap: 16px; width: max-content; }
+.tslider__track::after { content: ""; flex: 0 0 1px; margin-left: -17px; }   /* keeps the end padding in every browser */
+
+/* ---------- Card ---------- */
+.tc {
+  flex: 0 0 auto; width: min(82vw, 330px); scroll-snap-align: start;
+  display: flex; flex-direction: column; overflow: hidden; border-radius: 6px;
+  background: #1C1A19; color: var(--white);
+  box-shadow: 0 20px 50px -28px rgba(18,18,18,.55);
+  transition: transform .7s var(--ease-out), box-shadow .7s var(--ease-out);
+  user-select: none; -webkit-user-select: none;
+}
+.tc:hover { transform: translateY(-6px); box-shadow: 0 32px 60px -30px rgba(18,18,18,.6); }
+.tc__media { position: relative; aspect-ratio: 1 / 1.08; background: #2a2725; }
+.tc__media > img { -webkit-user-drag: none; }
+.tc__media::after {            /* photo melts into the dark body */
+  content: ""; position: absolute; inset: auto 0 0; height: 38%; pointer-events: none;
+  background: linear-gradient(0deg, #1C1A19 0%, rgba(28,26,25,0) 100%);
+}
+.tc:hover .tc__media > img { transform: scale(1.05); }
+.tc__body {
+  position: relative; flex: 1; display: flex; flex-direction: column;
+  padding: 4px 22px 18px;
+  background:
+    radial-gradient(120% 70% at 85% 0%, rgba(201,162,126,.10), transparent 60%),
+    #1C1A19;
+}
+.tc__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.tc__head .h3 { color: var(--white); font-size: 25px; line-height: 1.15; }
+.tc__head .ico { width: 16px; height: 16px; color: var(--champagne); margin-top: 6px; transition: transform .45s var(--ease-out); }
+.tc:hover .tc__head .ico { transform: translate(3px, -3px); }
+.tc__text { font-size: 14px; line-height: 1.6; color: var(--on-ink-muted); margin-bottom: 16px; min-height: 3.2em; }
+.tc__link {
+  align-self: flex-start; margin-bottom: 20px; padding-bottom: 5px;
+  font-size: 10.5px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--champagne); border-bottom: 1px solid rgba(201,162,126,.5);
+  transition: color .3s, border-color .3s;
+}
+.tc__link:hover { color: var(--white); border-color: var(--white); }
+.tc__meta {
+  margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding-top: 14px; border-top: 1px solid rgba(255,255,255,.1);
+  font-size: 10px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.7);
+}
+.tc__dot { color: rgba(255,255,255,.3); }
+@media (min-width: 768px) { .tc { width: 340px; } }
+@media (min-width: 1680px) { .tc { width: 380px; } .tc__head .h3 { font-size: 28px; } .tc__text { font-size: 15px; } }
+@media (min-width: 2200px) { .tc { width: 440px; } .tc__head .h3 { font-size: 32px; } .tc__text { font-size: 17px; } .tc__meta, .tc__link { font-size: 12px; } }
+@media (max-height: 520px) and (orientation: landscape) { .tc__media { aspect-ratio: 16 / 10; } }
+
+/* ---------- Under the track ---------- */
+.treat__foot { margin-top: 18px; }
+.tprogress { height: 1px; background: var(--silver); overflow: hidden; margin-bottom: 28px; }
+.tprogress span { display: block; height: 100%; background: var(--ink); transform-origin: left; transform: scaleX(.3); transition: transform .3s var(--ease); }
+.treat__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+.treat__row .treat__extra { margin: 0; justify-content: flex-start; text-align: left; }
+
+/* ---------- Reviews (paper section, white cards) ---------- */
+.reviews .rcard { background: var(--white); }
+.rcard__stars { color: var(--champagne); font-size: 13px; letter-spacing: .25em; margin-bottom: 14px; }
+.rcard__text { font-size: 21px; }
+@media (min-width: 768px) { .rcard__text { font-size: 22px; } }
+@media (min-width: 1024px) { .rcard__text { font-size: 24px; } }
+@media (min-width: 1680px) { .rcard__text { font-size: 27px; } }
+@media (min-width: 2200px) { .rcard__text { font-size: 31px; } }
+
+/* ---------- Compact footer ---------- */
+.footer { padding-top: 72px; }
+.footer__brand .logo__script { font-size: 52px; }
+.footer__bottom {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;
+  margin-top: 56px; padding: 22px 0 26px; border-top: 1px solid rgba(255,255,255,.08);
+}
+.footer__bottom .footer__copy { font-size: 13px; }
+@media (min-width: 1024px) { .footer { padding-top: 80px; } .footer__grid { align-items: start; } }
+/* card polish: seamless photo → body, compact meta row */
+.tc__body { background: radial-gradient(120% 60% at 90% 100%, rgba(201,162,126,.10), transparent 65%), #1C1A19; }
+.tc__media::after { height: 42%; bottom: -1px; }
+.tc__meta { justify-content: flex-start; gap: 12px; }
