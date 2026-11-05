@@ -108,8 +108,8 @@
 
       <nav class="nav__links" data-i18n-aria="a11y.mainNav" aria-label="Hauptnavigation">
         <a href="#behandlungen" data-i18n="nav.treatments">Behandlungen</a>
-        <a href="#ueber-mich" data-i18n="nav.about">Über mich</a>
         <a href="#preise" data-i18n="nav.prices">Preise</a>
+        <a href="#ueber-mich" data-i18n="nav.about">Über mich</a>
         <a href="#bewertungen" data-i18n="nav.reviews">Bewertungen</a>
         <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
       </nav>
@@ -133,8 +133,8 @@
     <div class="mmenu__inner container">
       <nav class="mmenu__links" data-i18n-aria="a11y.mainNav" aria-label="Hauptnavigation">
         <a href="#behandlungen"><span class="mmenu__num">01</span><span data-i18n="nav.treatments">Behandlungen</span></a>
-        <a href="#ueber-mich"><span class="mmenu__num">02</span><span data-i18n="nav.about">Über mich</span></a>
-        <a href="#preise"><span class="mmenu__num">03</span><span data-i18n="nav.prices">Preise</span></a>
+        <a href="#preise"><span class="mmenu__num">02</span><span data-i18n="nav.prices">Preise</span></a>
+        <a href="#ueber-mich"><span class="mmenu__num">03</span><span data-i18n="nav.about">Über mich</span></a>
         <a href="#bewertungen"><span class="mmenu__num">04</span><span data-i18n="nav.reviews">Bewertungen</span></a>
         <a href="#kontakt"><span class="mmenu__num">05</span><span data-i18n="nav.contact">Kontakt</span></a>
       </nav>
@@ -153,7 +153,7 @@
   </div>
 
   <main id="main">
-    <!-- ===================== 1 · HERO ===================== -->
+    <!-- ===================== HERO ===================== -->
     <section class="hero" id="top">
       <div class="hero__media media media--hero" data-img="hero" data-alt="hero.alt" data-eager>
         <div class="hero__art" aria-hidden="true">
@@ -178,89 +178,12 @@
         </div>
       </div>
 
-      <a class="hero__scroll" href="#ueber-mich" aria-hidden="true" tabindex="-1">
+      <a class="hero__scroll" href="#behandlungen" aria-hidden="true" tabindex="-1">
         <span class="mono" data-i18n="hero.scroll">Scrollen</span><span class="hero__scroll-line"></span>
       </a>
     </section>
 
-    <!-- ===================== 2 · ÜBER MICH (NAVARA: About) ===================== -->
-    <section class="section about" id="ueber-mich">
-      <div class="container about__grid">
-        <div class="about__media reveal">
-          <div class="media media--frame" data-img="about" data-alt="about.alt">
-            <div class="ph">
-              <span class="ph__frame"></span>
-              <svg class="ph__icon" aria-hidden="true"><use href="#i-spark"/></svg>
-              <span class="ph__cap" data-i18n="ph.portrait">Porträt folgt</span>
-            </div>
-          </div>
-        </div>
-        <div class="about__copy">
-          <p class="label reveal"><span data-i18n="about.label">Certified Beauty Expert</span></p>
-          <h2 class="h2 reveal" style="--d:1" data-i18n="about.title">Hi, ich bin Melina.</h2>
-          <p class="reveal" style="--d:2" data-i18n="about.p1">Haut ist meine Leidenschaft – und jede Haut erzählt ihre eigene Geschichte. In meinem Studio in Gelsenkirchen nehme ich mir Zeit für dich: Ich höre zu, schaue mir deine Haut genau an und stimme jede Behandlung individuell auf dich ab.</p>
-          <p class="reveal" style="--d:2" data-i18n="about.p2">Mir geht es nicht um maskenhafte Ergebnisse, sondern um natürliche Schönheit, gesunde Haut und das gute Gefühl, mit dem du nach Hause gehst.</p>
-          <p class="placeholder-text reveal" style="--d:3" data-i18n="about.facts">[PLATZHALTER: Ausbildung, Zertifikate, Jahre Erfahrung]</p>
-          <div class="about__sign reveal" style="--d:3">
-            <span class="hand hand--sign">Melina</span>
-          </div>
-          <a class="btn btn--ink js-book reveal" style="--d:4" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="about.cta">Lerne mich kennen</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== 3 · PHILOSOPHIE (NAVARA: Benefits, dark) ===================== -->
-    <section class="section section--ink philo" id="philosophie">
-      <div class="philo__sheen" aria-hidden="true"></div>
-      <div class="container philo__grid">
-        <div class="philo__intro">
-          <p class="label label--light reveal"><span data-i18n="philo.label">Philosophie</span></p>
-          <h2 class="h2 philo__quote reveal" style="--d:1" data-i18n="philo.quote">„Natürliche Schönheit ist kein Trend, sondern ein Gefühl.“</h2>
-          <p class="reveal" style="--d:2" data-i18n="philo.text">Professionelle Behandlungen, individuell auf deine Haut abgestimmt – für Ergebnisse, die natürlich aussehen, und eine Haut, in der du dich rundum wohlfühlst.</p>
-          <a class="btn btn--paper reveal" style="--d:3" href="#behandlungen" data-i18n="philo.cta">Behandlung finden</a>
-          <p class="hand philo__hand reveal" style="--d:4">Glow like you mean it</p>
-        </div>
-
-        <ol class="philo__values">
-          <li class="value reveal" style="--d:1">
-            <span class="value__icon"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
-            <div>
-              <span class="mono">01</span>
-              <h3 class="h3" data-i18n="philo.v1.title">Individuell</h3>
-              <p data-i18n="philo.v1.text">Jede Behandlung beginnt mit deiner Haut – nicht mit einem Schema.</p>
-            </div>
-          </li>
-          <li class="value reveal" style="--d:2">
-            <span class="value__icon"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg></span>
-            <div>
-              <span class="mono">02</span>
-              <h3 class="h3" data-i18n="philo.v2.title">Natürlich</h3>
-              <p data-i18n="philo.v2.text">Ergebnisse, die dich unterstreichen, statt dich zu verändern.</p>
-            </div>
-          </li>
-          <li class="value reveal" style="--d:3">
-            <span class="value__icon"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></span>
-            <div>
-              <span class="mono">03</span>
-              <h3 class="h3" data-i18n="philo.v3.title">Wohlfühlen</h3>
-              <p data-i18n="philo.v3.text">Gesunde Haut und eine Auszeit, die dir richtig guttut.</p>
-            </div>
-          </li>
-        </ol>
-
-        <div class="philo__media reveal" style="--d:2">
-          <div class="media media--dark" data-img="philosophy" data-alt="philo.alt">
-            <div class="ph ph--dark">
-              <span class="ph__frame"></span>
-              <svg class="ph__icon" aria-hidden="true"><use href="#i-facial"/></svg>
-              <span class="ph__cap" data-i18n="ph.photo">Foto folgt</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== 4 · BEHANDLUNGEN (horizontal carousel) ===================== -->
+    <!-- ===================== 1 · BEHANDLUNGEN (horizontal carousel) ===================== -->
     <section class="section section--mist treat" id="behandlungen">
       <div class="container">
         <div class="sec-head">
@@ -349,7 +272,7 @@
       </div>
     </section>
 
-    <!-- ===================== 6 · PREISE ===================== -->
+    <!-- ===================== 2 · PREISE ===================== -->
     <section class="section section--ink prices" id="preise">
       <div class="container prices__grid">
         <div class="prices__intro">
@@ -373,7 +296,84 @@
       </div>
     </section>
 
-    <!-- ===================== 8 · BEWERTUNGEN (NAVARA: Testimonials stack) ===================== -->
+    <!-- ===================== 3 · ÜBER MICH (NAVARA: About) ===================== -->
+    <section class="section about" id="ueber-mich">
+      <div class="container about__grid">
+        <div class="about__media reveal">
+          <div class="media media--frame" data-img="about" data-alt="about.alt">
+            <div class="ph">
+              <span class="ph__frame"></span>
+              <svg class="ph__icon" aria-hidden="true"><use href="#i-spark"/></svg>
+              <span class="ph__cap" data-i18n="ph.portrait">Porträt folgt</span>
+            </div>
+          </div>
+        </div>
+        <div class="about__copy">
+          <p class="label reveal"><span data-i18n="about.label">Certified Beauty Expert</span></p>
+          <h2 class="h2 reveal" style="--d:1" data-i18n="about.title">Hi, ich bin Melina.</h2>
+          <p class="reveal" style="--d:2" data-i18n="about.p1">Haut ist meine Leidenschaft – und jede Haut erzählt ihre eigene Geschichte. In meinem Studio in Gelsenkirchen nehme ich mir Zeit für dich: Ich höre zu, schaue mir deine Haut genau an und stimme jede Behandlung individuell auf dich ab.</p>
+          <p class="reveal" style="--d:2" data-i18n="about.p2">Mir geht es nicht um maskenhafte Ergebnisse, sondern um natürliche Schönheit, gesunde Haut und das gute Gefühl, mit dem du nach Hause gehst.</p>
+          <p class="placeholder-text reveal" style="--d:3" data-i18n="about.facts">[PLATZHALTER: Ausbildung, Zertifikate, Jahre Erfahrung]</p>
+          <div class="about__sign reveal" style="--d:3">
+            <span class="hand hand--sign">Melina</span>
+          </div>
+          <a class="btn btn--ink js-book reveal" style="--d:4" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="about.cta">Lerne mich kennen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 4 · PHILOSOPHIE (NAVARA: Benefits, dark) ===================== -->
+    <section class="section section--ink philo" id="philosophie">
+      <div class="philo__sheen" aria-hidden="true"></div>
+      <div class="container philo__grid">
+        <div class="philo__intro">
+          <p class="label label--light reveal"><span data-i18n="philo.label">Philosophie</span></p>
+          <h2 class="h2 philo__quote reveal" style="--d:1" data-i18n="philo.quote">„Natürliche Schönheit ist kein Trend, sondern ein Gefühl.“</h2>
+          <p class="reveal" style="--d:2" data-i18n="philo.text">Professionelle Behandlungen, individuell auf deine Haut abgestimmt – für Ergebnisse, die natürlich aussehen, und eine Haut, in der du dich rundum wohlfühlst.</p>
+          <a class="btn btn--paper js-book reveal" style="--d:3" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="nav.book">Termin anfragen</a>
+          <p class="hand philo__hand reveal" style="--d:4">Glow like you mean it</p>
+        </div>
+
+        <ol class="philo__values">
+          <li class="value reveal" style="--d:1">
+            <span class="value__icon"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
+            <div>
+              <span class="mono">01</span>
+              <h3 class="h3" data-i18n="philo.v1.title">Individuell</h3>
+              <p data-i18n="philo.v1.text">Jede Behandlung beginnt mit deiner Haut – nicht mit einem Schema.</p>
+            </div>
+          </li>
+          <li class="value reveal" style="--d:2">
+            <span class="value__icon"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg></span>
+            <div>
+              <span class="mono">02</span>
+              <h3 class="h3" data-i18n="philo.v2.title">Natürlich</h3>
+              <p data-i18n="philo.v2.text">Ergebnisse, die dich unterstreichen, statt dich zu verändern.</p>
+            </div>
+          </li>
+          <li class="value reveal" style="--d:3">
+            <span class="value__icon"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></span>
+            <div>
+              <span class="mono">03</span>
+              <h3 class="h3" data-i18n="philo.v3.title">Wohlfühlen</h3>
+              <p data-i18n="philo.v3.text">Gesunde Haut und eine Auszeit, die dir richtig guttut.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="philo__media reveal" style="--d:2">
+          <div class="media media--dark" data-img="philosophy" data-alt="philo.alt">
+            <div class="ph ph--dark">
+              <span class="ph__frame"></span>
+              <svg class="ph__icon" aria-hidden="true"><use href="#i-facial"/></svg>
+              <span class="ph__cap" data-i18n="ph.photo">Foto folgt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 5 · BEWERTUNGEN (NAVARA: Testimonials stack) ===================== -->
     <section class="section reviews" id="bewertungen">
       <div class="container">
         <div class="sec-head sec-head--split">
@@ -427,7 +427,7 @@
       </div>
     </section>
 
-    <!-- ===================== 10 · FAQ ===================== -->
+    <!-- ===================== 6 · FAQ ===================== -->
     <section class="section section--mist faq" id="faq">
       <span class="faq__deco faq__deco--l" aria-hidden="true">?</span>
       <span class="faq__deco faq__deco--r" aria-hidden="true">&amp;</span>
@@ -466,7 +466,7 @@
       </div>
     </section>
 
-    <!-- ===================== 11 · KONTAKT (NAVARA: CTA) ===================== -->
+    <!-- ===================== 7 · KONTAKT (NAVARA: CTA) ===================== -->
     <section class="cta" id="kontakt">
       <div class="cta__bg" aria-hidden="true">
         <span class="cta__glow"></span>
@@ -533,8 +533,8 @@
           <p class="mono footer__h" data-i18n="footer.nav">Navigation</p>
           <ul>
             <li><a href="#behandlungen" data-i18n="nav.treatments">Behandlungen</a></li>
-            <li><a href="#ueber-mich" data-i18n="nav.about">Über mich</a></li>
             <li><a href="#preise" data-i18n="nav.prices">Preise</a></li>
+            <li><a href="#ueber-mich" data-i18n="nav.about">Über mich</a></li>
             <li><a href="#bewertungen" data-i18n="nav.reviews">Bewertungen</a></li>
             <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
           </ul>
