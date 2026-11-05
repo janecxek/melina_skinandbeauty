@@ -35,7 +35,6 @@ window.I18N = {
     /* ---------- Hero ---------- */
     "hero.title": "Deine Haut.<br>Unsere Expertise.",
     "hero.sub": "Moderne Kosmetik für natürliche Schönheit & gesunde Haut - in Gelsenkirchen.",
-    "hero.note": "Schön, dass du da bist ♡",
     "hero.cta1": "Termin anfragen",
     "hero.cta2": "Behandlungen entdecken",
     "hero.scroll": "Scrollen",
@@ -234,7 +233,6 @@ window.I18N = {
     /* ---------- Hero ---------- */
     "hero.title": "Your skin.<br>Our expertise.",
     "hero.sub": "Modern skincare for natural beauty & healthy skin - in Gelsenkirchen.",
-    "hero.note": "So glad you're here ♡",
     "hero.cta1": "Book an appointment",
     "hero.cta2": "Explore treatments",
     "hero.scroll": "Scroll",
