@@ -1129,3 +1129,30 @@ p { text-wrap: pretty; }
 .tc__body { background: radial-gradient(120% 60% at 90% 100%, rgba(201,162,126,.10), transparent 65%), #1C1A19; }
 .tc__media::after { height: 42%; bottom: -1px; }
 .tc__meta { justify-content: flex-start; gap: 12px; }
+
+/* =========================================================
+   ROUND 7 – arrows below the cards · smooth price-list hover
+   ========================================================= */
+.cnav { justify-content: center; gap: 14px; margin-top: 30px; }
+@media (min-width: 768px) { .cnav { justify-self: auto; } }
+.cnav__btn {
+  width: 54px; height: 54px; border-color: rgba(18,18,18,.35);
+  transition: background-color .45s var(--ease), color .45s var(--ease), border-color .45s var(--ease), opacity .45s var(--ease), transform .45s var(--ease-out);
+}
+.cnav__btn .ico { width: 17px; height: 17px; stroke-width: 1.1; }
+.cnav__btn:hover:not(:disabled) { border-color: var(--ink); transform: translateY(-2px); }
+.cnav__btn:disabled { opacity: .25; }
+.treat .sec-head { margin-bottom: 40px; }
+@media (min-width: 1680px) { .cnav__btn { width: 60px; height: 60px; } }
+
+/* price list: glide instead of jump (the fade-in transition no longer overrides it) */
+.plist li, .plist li:hover { padding-left: 0; }
+.plist__name, .plist__price, .plist__dots {
+  transition: transform .7s var(--ease-out), color .5s var(--ease), border-color .5s var(--ease), opacity .5s var(--ease);
+}
+.plist li:hover .plist__name { transform: translateX(12px); }
+.plist li:hover .plist__price { color: var(--champagne); }
+.plist li:hover .plist__dots { border-bottom-color: rgba(201,162,126,.55); }
+@media (hover: none) { .plist li:hover .plist__name { transform: none; } }
+.tslider { padding-bottom: 48px; }           /* room for the card shadow, no clipped band */
+.cnav { margin-top: 6px; }
