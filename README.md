@@ -27,12 +27,12 @@ node tools/check-i18n.js      # prüft, dass jeder Text-Key in DE und EN existie
 
 | # | Abschnitt | Inhalt |
 |---|---|---|
-| – | Navigation | Logo „Melina“, Behandlungen · Über mich · Preise · Bewertungen · Kontakt, DE/EN, „Termin anfragen“, Burger-Menü auf Mobile |
+| – | Navigation | Logo „Melina“, Behandlungen · Preise · Über mich · Bewertungen · Kontakt, DE/EN, „Termin anfragen“, Burger-Menü auf Mobile |
 | 1 | Hero | Vollbild-Foto, „Deine Haut. Unsere Expertise.“, Untertitel, 2 Buttons |
-| 2 | Über mich | Porträt Melina, Text in der Ich-Form, Signatur |
-| 3 | Philosophie (dunkel) | Zitat, 01/02/03-Werte, „Glow like you mean it“ |
-| 4 | Behandlungen | horizontales Karussell: 6 Karten mit Foto, Beschreibung, Kategorie und „ab [PREIS] €“; Pfeile unter den Karten, Maus ziehen, Wischen |
-| 5 | Preise (dunkel) | Preisliste mit 9 Positionen |
+| 2 | Behandlungen | horizontales Karussell: 6 Karten mit Foto, Beschreibung, Kategorie und „ab [PREIS] €“; Pfeile unter den Karten, Maus ziehen, Wischen |
+| 3 | Preise (dunkel) | Preisliste mit 9 Positionen |
+| 4 | Über mich | Porträt Melina, Text in der Ich-Form, Signatur |
+| 5 | Philosophie (dunkel) | Zitat, 01/02/03-Werte, „Glow like you mean it“ |
 | 6 | Bewertungen | 3 **Beispiel**-Bewertungen (gestapelte Karten) |
 | 7 | FAQ | Akkordeon mit 6 Fragen |
 | 8 | Kontakt (dunkel) | „Bereit für deinen Glow?“, Adresse, Zeiten, Karte (2-Klick) |
