@@ -35,13 +35,11 @@ window.I18N = {
     "nav.back": "Zurück zur Startseite",
 
     /* ---------- Hero ---------- */
-    "hero.label": "Kosmetikstudio · Ästhetik · Wohlbefinden",
     "hero.title": "Deine Haut.<br>Unsere Expertise.",
     "hero.sub": "Moderne Kosmetik für natürliche Schönheit & gesunde Haut – in Gelsenkirchen.",
     "hero.note": "Schön, dass du da bist ♡",
     "hero.cta1": "Termin anfragen",
     "hero.cta2": "Behandlungen entdecken",
-    "hero.follow": "Folge mir auf Instagram",
     "hero.scroll": "Scrollen",
     "hero.alt": "Natürlich strahlende, gepflegte Haut – Kosmetikstudio Melina Skin & Beauty in Gelsenkirchen",
 
@@ -51,9 +49,6 @@ window.I18N = {
     "about.p1": "Haut ist meine Leidenschaft – und jede Haut erzählt ihre eigene Geschichte. In meinem Studio in Gelsenkirchen nehme ich mir Zeit für dich: Ich höre zu, schaue mir deine Haut genau an und stimme jede Behandlung individuell auf dich ab.",
     "about.p2": "Mir geht es nicht um maskenhafte Ergebnisse, sondern um natürliche Schönheit, gesunde Haut und das gute Gefühl, mit dem du nach Hause gehst.",
     "about.facts": "[PLATZHALTER: Ausbildung, Zertifikate, Jahre Erfahrung]",
-    "about.f1": "Persönliche Hautanalyse",
-    "about.f2": "Individuelle Pflege",
-    "about.f3": "Natürliche Ergebnisse",
     "about.cta": "Lerne mich kennen",
     "about.alt": "Melina, Kosmetikerin von Melina Skin & Beauty in Gelsenkirchen",
 
@@ -273,13 +268,11 @@ window.I18N = {
     "nav.back": "Back to home",
 
     /* ---------- Hero ---------- */
-    "hero.label": "Skin studio · Aesthetics · Wellbeing",
     "hero.title": "Your skin.<br>Our expertise.",
     "hero.sub": "Modern skincare for natural beauty & healthy skin – in Gelsenkirchen.",
     "hero.note": "So glad you're here ♡",
     "hero.cta1": "Book an appointment",
     "hero.cta2": "Explore treatments",
-    "hero.follow": "Follow me on Instagram",
     "hero.scroll": "Scroll",
     "hero.alt": "Naturally radiant, well-cared-for skin – Melina Skin & Beauty studio in Gelsenkirchen",
 
@@ -289,9 +282,6 @@ window.I18N = {
     "about.p1": "Skin is my passion – and every skin has its own story. In my Gelsenkirchen studio, I take the time to really listen, look closely at your skin and tailor every single treatment to you.",
     "about.p2": "I'm not here for overdone results. I'm here for natural beauty, healthy skin – and that feeling you take home with you.",
     "about.facts": "[PLACEHOLDER: training, certificates, years of experience]",
-    "about.f1": "Personal skin analysis",
-    "about.f2": "Tailored care",
-    "about.f3": "Natural results",
     "about.cta": "Come and meet me",
     "about.alt": "Melina, beauty therapist at Melina Skin & Beauty in Gelsenkirchen",
 
