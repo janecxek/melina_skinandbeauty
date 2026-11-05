@@ -1223,3 +1223,39 @@ p { text-wrap: pretty; }
   border-color: rgba(18, 18, 18, .06);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
 }
+
+/* =========================================================
+   ROUND 11 – mobile: clearer menu · price CTA under list ·
+   stacking review cards on phones
+   ========================================================= */
+
+/* mobile menu: clear sans-serif links instead of hairline serif */
+.mmenu__links a {
+  font-family: var(--f-sans); font-weight: 400; font-size: 21px; line-height: 1.2;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ink);
+  align-items: center; padding: 20px 0;
+}
+.mmenu__num { font-size: 11px; color: var(--grey); min-width: 22px; }
+@media (max-width: 359px) { .mmenu__links a { font-size: 18px; letter-spacing: .1em; padding: 16px 0; } }
+@media (max-height: 520px) and (orientation: landscape) { .mmenu__links a { font-size: 17px; padding: 11px 0; } }
+
+/* prices: consultation note + booking button live below the list on phones/tablets,
+   and stay in the left column under the intro on desktop */
+.prices__cta { display: grid; justify-items: start; gap: 22px; }
+.prices__cta .prices__note { margin: 0; }
+@media (max-width: 1023px) { .prices__cta { margin-top: 4px; } }
+@media (min-width: 1024px) {
+  .prices__grid { grid-template-columns: .85fr 1.15fr; grid-template-rows: auto 1fr; row-gap: 8px; }
+  .prices__intro { grid-column: 1; grid-row: 1; position: static; }
+  .prices__cta { grid-column: 1; grid-row: 2; align-self: start; }
+  .plist { grid-column: 2; grid-row: 1 / span 2; }
+}
+
+/* reviews on phones: cards stack on top of each other while scrolling, like on desktop */
+@media (max-width: 767px) and (min-height: 640px) {
+  .rstack { gap: 18px; }
+  .rcard { position: sticky; top: calc(var(--nav-h) + 26px + var(--i) * 14px); }
+  .rcard__media { aspect-ratio: 16 / 11; }
+  .rcard__quote { padding: 26px 24px 28px; }
+  .rcard__text { font-size: 19px; }
+}
