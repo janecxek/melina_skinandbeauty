@@ -54,6 +54,6 @@ Die Fotos werden in Farbe gezeigt und zoomen beim Hover leicht heran.
 - **Über mich:** `[PLATZHALTER: Ausbildung, Zertifikate, Jahre Erfahrung]`
 - **Bewertungen:** die 3 Bewertungen sind **Beispieltexte für den Entwurf**. Vor dem Livegang durch echte Kundenbewertungen ersetzen (erfundene Bewertungen sind in Deutschland verboten, § 5b UWG) – `i18n.js` → `reviews.1–3`
 - **Domain:** `https://www.melina-skinandbeauty.de` in canonical, hreflang, OG und JSON-LD
-- **Fotos:** alle Plätze sind belegt (Melina = echtes Porträt, übrige = KI-Stimmungsbilder); für echte Behandlungsfotos einfach die Dateien in `images/` ersetzen
+- **Fotos:** alle Plätze sind belegt (Melina = echtes Porträt, übrige = KI-Bilder). Die 3 Fotos bei den Bewertungen zeigen KI-„Ergebnisse“ passend zu den Beispieltexten – vor dem Livegang durch echte Fotos der jeweiligen Kundinnen (mit Einwilligung) ersetzen, sonst wirkt es wie ein echtes Ergebnis (irreführend, UWG)
 - **Logo:** derzeit typografisch nachgebaut, Original-Logo als `images/logo.png` ersetzen
 - **Rechtstexte:** Impressum und Datenschutz vor dem Livegang rechtssicher erstellen lassen
