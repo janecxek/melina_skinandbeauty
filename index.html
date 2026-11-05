@@ -92,6 +92,8 @@
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15.5M14 6.5l5.5 5.5-5.5 5.5"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M8.5 7H17v8.5"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9.5 5.5L16 12l-6.5 6.5"/></symbol>
     <symbol id="i-drag" viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></symbol>
   </svg>
 
@@ -107,8 +109,8 @@
       <nav class="nav__links" data-i18n-aria="a11y.mainNav" aria-label="Hauptnavigation">
         <a href="#behandlungen" data-i18n="nav.treatments">Behandlungen</a>
         <a href="#ueber-mich" data-i18n="nav.about">Über mich</a>
-        <a href="#ergebnisse" data-i18n="nav.results">Ergebnisse</a>
         <a href="#preise" data-i18n="nav.prices">Preise</a>
+        <a href="#bewertungen" data-i18n="nav.reviews">Bewertungen</a>
         <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
       </nav>
 
@@ -132,8 +134,8 @@
       <nav class="mmenu__links" data-i18n-aria="a11y.mainNav" aria-label="Hauptnavigation">
         <a href="#behandlungen"><span class="mmenu__num">01</span><span data-i18n="nav.treatments">Behandlungen</span></a>
         <a href="#ueber-mich"><span class="mmenu__num">02</span><span data-i18n="nav.about">Über mich</span></a>
-        <a href="#ergebnisse"><span class="mmenu__num">03</span><span data-i18n="nav.results">Ergebnisse</span></a>
-        <a href="#preise"><span class="mmenu__num">04</span><span data-i18n="nav.prices">Preise</span></a>
+        <a href="#preise"><span class="mmenu__num">03</span><span data-i18n="nav.prices">Preise</span></a>
+        <a href="#bewertungen"><span class="mmenu__num">04</span><span data-i18n="nav.reviews">Bewertungen</span></a>
         <a href="#kontakt"><span class="mmenu__num">05</span><span data-i18n="nav.contact">Kontakt</span></a>
       </nav>
       <div class="mmenu__foot">
@@ -258,7 +260,7 @@
       </div>
     </section>
 
-    <!-- ===================== 4 · BEHANDLUNGEN (NAVARA: Treatments bento) ===================== -->
+    <!-- ===================== 4 · BEHANDLUNGEN (horizontal carousel) ===================== -->
     <section class="section section--mist treat" id="behandlungen">
       <div class="container">
         <div class="sec-head sec-head--split">
@@ -267,108 +269,89 @@
             <h2 class="h2 reveal" style="--d:1" data-i18n="treat.title">Gezielte Pflege für deine Haut</h2>
             <p class="sec-head__text reveal" style="--d:2" data-i18n="treat.text">Von der Gesichtsbehandlung bis zum perfekten Augenaufschlag – jede Behandlung individuell auf dich abgestimmt.</p>
           </div>
-          <a class="btn btn--ink js-book reveal" style="--d:2" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="treat.cta">Termin anfragen</a>
+          <div class="cnav reveal" style="--d:2">
+            <button class="cnav__btn cnav__btn--prev" type="button" data-dir="-1" data-i18n-aria="a11y.prev" aria-label="Zurück"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="cnav__btn" type="button" data-dir="1" data-i18n-aria="a11y.next" aria-label="Weiter"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
+          </div>
         </div>
-
-        <div class="bento">
-          <article class="tcard tcard--a reveal" data-img="treat-facial" data-alt="treat.1.title">
-            <span class="pill" data-i18n="treat.from">ab [PREIS] €</span>
-            <svg class="tcard__icon" aria-hidden="true"><use href="#i-facial"/></svg>
-            <div class="tcard__body">
-              <h3 class="h3" data-i18n="treat.1.title">Gesichtsbehandlungen</h3>
-              <p data-i18n="treat.1.text">Individuelle Pflege für eine reine, gesunde Haut.</p>
-            </div>
-          </article>
-          <article class="tcard tcard--b reveal" style="--d:1" data-img="treat-microneedling" data-alt="treat.2.title">
-            <span class="pill" data-i18n="treat.from">ab [PREIS] €</span>
-            <svg class="tcard__icon" aria-hidden="true"><use href="#i-needle"/></svg>
-            <div class="tcard__body">
-              <h3 class="h3" data-i18n="treat.2.title">Microneedling</h3>
-              <p data-i18n="treat.2.text">Für ein ebenmäßiges, verfeinertes Hautbild.</p>
-            </div>
-          </article>
-          <article class="tcard tcard--c reveal" style="--d:2" data-img="treat-bbglow" data-alt="treat.3.title">
-            <span class="pill" data-i18n="treat.from">ab [PREIS] €</span>
-            <svg class="tcard__icon" aria-hidden="true"><use href="#i-glow"/></svg>
-            <div class="tcard__body">
-              <h3 class="h3" data-i18n="treat.3.title">BB Glow</h3>
-              <p data-i18n="treat.3.text">Für einen frischen, ebenmäßigen Teint.</p>
-            </div>
-          </article>
-          <article class="tcard tcard--d reveal" style="--d:1" data-img="treat-browlift" data-alt="treat.4.title">
-            <span class="pill" data-i18n="treat.from">ab [PREIS] €</span>
-            <svg class="tcard__icon" aria-hidden="true"><use href="#i-brow"/></svg>
-            <div class="tcard__body">
-              <h3 class="h3" data-i18n="treat.4.title">Browlift</h3>
-              <p data-i18n="treat.4.text">Perfekt geformte, gepflegte Brauen.</p>
-            </div>
-          </article>
-          <article class="tcard tcard--e reveal" data-img="treat-lashlift" data-alt="treat.5.title">
-            <span class="pill" data-i18n="treat.from">ab [PREIS] €</span>
-            <svg class="tcard__icon" aria-hidden="true"><use href="#i-lashlift"/></svg>
-            <div class="tcard__body">
-              <h3 class="h3" data-i18n="treat.5.title">Lashlift</h3>
-              <p data-i18n="treat.5.text">Natürlich geschwungene Wimpern ohne Extensions.</p>
-            </div>
-          </article>
-          <article class="tcard tcard--f reveal" style="--d:1" data-img="treat-lashext" data-alt="treat.6.title">
-            <span class="pill" data-i18n="treat.from">ab [PREIS] €</span>
-            <svg class="tcard__icon" aria-hidden="true"><use href="#i-lashext"/></svg>
-            <div class="tcard__body">
-              <h3 class="h3" data-i18n="treat.6.title">Lash Extensions</h3>
-              <p data-i18n="treat.6.text">Von natürlich bis ausdrucksstark.</p>
-            </div>
-          </article>
-        </div>
-
-        <p class="treat__extra reveal"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span data-i18n="treat.extra">Außerdem: Make-up für besondere Anlässe</span></p>
       </div>
-    </section>
 
-    <!-- ===================== 5 · ERGEBNISSE (NAVARA: Visible results + slider) ===================== -->
-    <section class="section results" id="ergebnisse">
-      <div class="container results__grid">
-        <div class="results__copy">
-          <p class="label reveal"><span data-i18n="results.label">Ergebnisse</span></p>
-          <h2 class="h2 reveal" style="--d:1" data-i18n="results.title">Sichtbar gepflegt. Natürlich schön.</h2>
-          <p class="reveal" style="--d:2" data-i18n="results.text">Ergebnisse aus meinem Studio – mit viel Liebe zum Detail und immer passend zu dir.</p>
-          <a class="btn btn--ink js-book reveal" style="--d:3" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="results.cta">Termin anfragen</a>
-
-          <div class="results__tiles">
-            <figure class="rtile reveal" style="--d:3">
-              <div class="media media--frame" data-img="result-lash" data-alt="results.altLash">
-                <div class="ph"><span class="ph__frame"></span><svg class="ph__icon" aria-hidden="true"><use href="#i-lashlift"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
-              </div>
-              <figcaption class="mono" data-i18n="results.tile1">Lashlift</figcaption>
-            </figure>
-            <figure class="rtile reveal" style="--d:4">
-              <div class="media media--frame" data-img="result-face" data-alt="results.altFace">
-                <div class="ph"><span class="ph__frame"></span><svg class="ph__icon" aria-hidden="true"><use href="#i-facial"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
-              </div>
-              <figcaption class="mono" data-i18n="results.tile2">Gesichtsbehandlung</figcaption>
-            </figure>
-          </div>
-
-          <a class="link-arrow reveal" href="https://www.instagram.com/melina_skinandbeauty/" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg><span data-i18n="results.ig">Mehr auf Instagram → @melina_skinandbeauty</span>
-          </a>
-        </div>
-
-        <div class="results__slider reveal" style="--d:2">
-          <div class="ba" id="ba" style="--pos:50%">
-            <img class="ba__img ba__img--after" src="images/illustration-brow-after.svg" alt="Augenbrauen nach dem Browlift" data-i18n-alt="results.altAfter" data-ba="after" width="900" height="980" loading="lazy" decoding="async">
-            <div class="ba__before">
-              <img class="ba__img" src="images/illustration-brow-before.svg" alt="Augenbrauen vor dem Browlift" data-i18n-alt="results.altBefore" data-ba="before" width="900" height="980" loading="lazy" decoding="async">
+      <div class="tslider reveal" style="--d:2" id="tslider" tabindex="0" role="region" data-i18n-aria="treat.slider" aria-label="Behandlungen – zum Blättern wischen">
+        <ul class="tslider__track">
+          <li class="tc">
+            <div class="tc__media media" data-img="treat-facial" data-alt="treat.1.title">
+              <div class="ph ph--dark"><svg class="ph__icon" aria-hidden="true"><use href="#i-facial"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
             </div>
-            <span class="pill pill--light ba__tag ba__tag--before" data-i18n="results.before">Vorher</span>
-            <span class="pill pill--light ba__tag ba__tag--after" data-i18n="results.after">Nachher</span>
-            <div class="ba__line" aria-hidden="true"></div>
-            <button class="ba__handle" type="button" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-i18n-aria="results.slider" aria-label="Vorher-Nachher-Vergleich Browlift">
-              <svg class="ico" aria-hidden="true"><use href="#i-drag"/></svg>
-            </button>
-            <span class="ba__hint mono" data-i18n="results.drag">Ziehen zum Vergleichen</span>
-            <span class="ba__illu mono" data-i18n="ph.illustration">Illustration · Foto folgt</span>
-          </div>
+            <div class="tc__body">
+              <div class="tc__head"><h3 class="h3" data-i18n="treat.1.title">Gesichtsbehandlungen</h3><svg class="ico" aria-hidden="true"><use href="#i-arrow-ur"/></svg></div>
+              <p class="tc__text" data-i18n="treat.1.text">Individuelle Pflege für eine reine, gesunde Haut.</p>
+              <a class="tc__link js-book" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="treat.more">Jetzt anfragen</a>
+              <p class="tc__meta"><span data-i18n="treat.cat1">Gesicht</span><span class="tc__dot" aria-hidden="true">·</span><span data-i18n="treat.from">ab [PREIS] €</span></p>
+            </div>
+          </li>
+          <li class="tc">
+            <div class="tc__media media" data-img="treat-microneedling" data-alt="treat.2.title">
+              <div class="ph ph--dark"><svg class="ph__icon" aria-hidden="true"><use href="#i-needle"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
+            </div>
+            <div class="tc__body">
+              <div class="tc__head"><h3 class="h3" data-i18n="treat.2.title">Microneedling</h3><svg class="ico" aria-hidden="true"><use href="#i-arrow-ur"/></svg></div>
+              <p class="tc__text" data-i18n="treat.2.text">Für ein ebenmäßiges, verfeinertes Hautbild.</p>
+              <a class="tc__link js-book" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="treat.more">Jetzt anfragen</a>
+              <p class="tc__meta"><span data-i18n="treat.cat2">Gesicht</span><span class="tc__dot" aria-hidden="true">·</span><span data-i18n="treat.from">ab [PREIS] €</span></p>
+            </div>
+          </li>
+          <li class="tc">
+            <div class="tc__media media" data-img="treat-bbglow" data-alt="treat.3.title">
+              <div class="ph ph--dark"><svg class="ph__icon" aria-hidden="true"><use href="#i-glow"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
+            </div>
+            <div class="tc__body">
+              <div class="tc__head"><h3 class="h3" data-i18n="treat.3.title">BB Glow</h3><svg class="ico" aria-hidden="true"><use href="#i-arrow-ur"/></svg></div>
+              <p class="tc__text" data-i18n="treat.3.text">Für einen frischen, ebenmäßigen Teint.</p>
+              <a class="tc__link js-book" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="treat.more">Jetzt anfragen</a>
+              <p class="tc__meta"><span data-i18n="treat.cat3">Teint</span><span class="tc__dot" aria-hidden="true">·</span><span data-i18n="treat.from">ab [PREIS] €</span></p>
+            </div>
+          </li>
+          <li class="tc">
+            <div class="tc__media media" data-img="treat-browlift" data-alt="treat.4.title">
+              <div class="ph ph--dark"><svg class="ph__icon" aria-hidden="true"><use href="#i-brow"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
+            </div>
+            <div class="tc__body">
+              <div class="tc__head"><h3 class="h3" data-i18n="treat.4.title">Browlift</h3><svg class="ico" aria-hidden="true"><use href="#i-arrow-ur"/></svg></div>
+              <p class="tc__text" data-i18n="treat.4.text">Perfekt geformte, gepflegte Brauen.</p>
+              <a class="tc__link js-book" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="treat.more">Jetzt anfragen</a>
+              <p class="tc__meta"><span data-i18n="treat.cat4">Brauen</span><span class="tc__dot" aria-hidden="true">·</span><span data-i18n="treat.from">ab [PREIS] €</span></p>
+            </div>
+          </li>
+          <li class="tc">
+            <div class="tc__media media" data-img="treat-lashlift" data-alt="treat.5.title">
+              <div class="ph ph--dark"><svg class="ph__icon" aria-hidden="true"><use href="#i-lashlift"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
+            </div>
+            <div class="tc__body">
+              <div class="tc__head"><h3 class="h3" data-i18n="treat.5.title">Lashlift</h3><svg class="ico" aria-hidden="true"><use href="#i-arrow-ur"/></svg></div>
+              <p class="tc__text" data-i18n="treat.5.text">Natürlich geschwungene Wimpern ohne Extensions.</p>
+              <a class="tc__link js-book" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="treat.more">Jetzt anfragen</a>
+              <p class="tc__meta"><span data-i18n="treat.cat5">Wimpern</span><span class="tc__dot" aria-hidden="true">·</span><span data-i18n="treat.from">ab [PREIS] €</span></p>
+            </div>
+          </li>
+          <li class="tc">
+            <div class="tc__media media" data-img="treat-lashext" data-alt="treat.6.title">
+              <div class="ph ph--dark"><svg class="ph__icon" aria-hidden="true"><use href="#i-lashext"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
+            </div>
+            <div class="tc__body">
+              <div class="tc__head"><h3 class="h3" data-i18n="treat.6.title">Lash Extensions</h3><svg class="ico" aria-hidden="true"><use href="#i-arrow-ur"/></svg></div>
+              <p class="tc__text" data-i18n="treat.6.text">Von natürlich bis ausdrucksstark.</p>
+              <a class="tc__link js-book" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="treat.more">Jetzt anfragen</a>
+              <p class="tc__meta"><span data-i18n="treat.cat6">Wimpern</span><span class="tc__dot" aria-hidden="true">·</span><span data-i18n="treat.from">ab [PREIS] €</span></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container treat__foot">
+        <div class="tprogress" aria-hidden="true"><span></span></div>
+        <div class="treat__row">
+          <p class="treat__extra"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span data-i18n="treat.extra">Außerdem: Make-up für besondere Anlässe</span></p>
+          <a class="btn btn--ink js-book" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="treat.cta">Termin anfragen</a>
         </div>
       </div>
     </section>
@@ -397,38 +380,8 @@
       </div>
     </section>
 
-    <!-- ===================== 7 · ABLAUF ===================== -->
-    <section class="section steps" id="ablauf">
-      <div class="container">
-        <div class="sec-head sec-head--center">
-          <p class="label reveal"><span data-i18n="steps.label">Ablauf</span></p>
-          <h2 class="h2 reveal" style="--d:1" data-i18n="steps.title">In drei Schritten zu deinem Glow</h2>
-        </div>
-        <ol class="steps__list">
-          <li class="step reveal">
-            <span class="step__num">01</span>
-            <h3 class="h3" data-i18n="steps.1.title">Anfrage per Instagram oder WhatsApp</h3>
-            <p data-i18n="steps.1.text">Schreib mir einfach eine Nachricht – ich melde mich so schnell wie möglich bei dir.</p>
-          </li>
-          <li class="step reveal" style="--d:1">
-            <span class="step__num">02</span>
-            <h3 class="h3" data-i18n="steps.2.title">Persönliche Hautanalyse &amp; Beratung</h3>
-            <p data-i18n="steps.2.text">Gemeinsam schauen wir uns deine Haut an und finden die Behandlung, die wirklich zu dir passt.</p>
-          </li>
-          <li class="step reveal" style="--d:2">
-            <span class="step__num">03</span>
-            <h3 class="h3" data-i18n="steps.3.title">Deine Behandlung – entspannt und auf dich abgestimmt</h3>
-            <p data-i18n="steps.3.text">Lehn dich zurück und genieß deine Auszeit – Pflegetipps für zu Hause inklusive.</p>
-          </li>
-        </ol>
-        <div class="steps__cta reveal">
-          <a class="link-arrow js-book" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener"><span data-i18n="steps.cta">Jetzt Termin anfragen</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        </div>
-      </div>
-    </section>
-
     <!-- ===================== 8 · BEWERTUNGEN (NAVARA: Testimonials stack) ===================== -->
-    <section class="section section--mist reviews" id="bewertungen">
+    <section class="section reviews" id="bewertungen">
       <div class="container">
         <div class="sec-head sec-head--split">
           <div>
@@ -439,6 +392,7 @@
           <a class="btn btn--ink js-book reveal" style="--d:2" href="https://ig.me/m/melina_skinandbeauty" target="_blank" rel="noopener" data-i18n="reviews.cta">Termin anfragen</a>
         </div>
 
+        <!-- SAMPLE REVIEWS for the mockup – replace with real client reviews before going live (fake reviews are illegal in Germany, § 5b UWG) -->
         <div class="rstack">
           <figure class="rcard" style="--i:0">
             <div class="rcard__media">
@@ -447,8 +401,9 @@
               </div>
             </div>
             <blockquote class="rcard__quote">
-              <p class="rcard__text" data-i18n="reviews.quote">[Hier echte Kundenbewertung einfügen]</p>
-              <figcaption class="mono" data-i18n="reviews.name">[NAME] · [BEHANDLUNG]</figcaption>
+              <p class="rcard__stars" aria-hidden="true">★★★★★</p>
+              <p class="rcard__text" data-i18n="reviews.1.text">…</p>
+              <figcaption class="mono" data-i18n="reviews.1.name">…</figcaption>
             </blockquote>
           </figure>
           <figure class="rcard rcard--rev" style="--i:1">
@@ -458,8 +413,9 @@
               </div>
             </div>
             <blockquote class="rcard__quote">
-              <p class="rcard__text" data-i18n="reviews.quote">[Hier echte Kundenbewertung einfügen]</p>
-              <figcaption class="mono" data-i18n="reviews.name">[NAME] · [BEHANDLUNG]</figcaption>
+              <p class="rcard__stars" aria-hidden="true">★★★★★</p>
+              <p class="rcard__text" data-i18n="reviews.2.text">…</p>
+              <figcaption class="mono" data-i18n="reviews.2.name">…</figcaption>
             </blockquote>
           </figure>
           <figure class="rcard" style="--i:2">
@@ -469,53 +425,11 @@
               </div>
             </div>
             <blockquote class="rcard__quote">
-              <p class="rcard__text" data-i18n="reviews.quote">[Hier echte Kundenbewertung einfügen]</p>
-              <figcaption class="mono" data-i18n="reviews.name">[NAME] · [BEHANDLUNG]</figcaption>
+              <p class="rcard__stars" aria-hidden="true">★★★★★</p>
+              <p class="rcard__text" data-i18n="reviews.3.text">…</p>
+              <figcaption class="mono" data-i18n="reviews.3.name">…</figcaption>
             </blockquote>
           </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== 9 · WISSEN (NAVARA: Journal) ===================== -->
-    <section class="section journal" id="wissen">
-      <div class="container">
-        <div class="sec-head sec-head--center">
-          <p class="label reveal"><span data-i18n="journal.label">Wissen</span></p>
-          <h2 class="h2 reveal" style="--d:1" data-i18n="journal.title">Wissen für deine Haut</h2>
-          <p class="sec-head__text reveal" style="--d:2" data-i18n="journal.text">Kurze, ehrliche Antworten rund um Behandlungen, Vorbereitung und Pflege.</p>
-        </div>
-        <div class="journal__grid">
-          <article class="jcard reveal">
-            <div class="media media--frame jcard__media" data-img="journal-1" data-alt="journal.alt1">
-              <div class="ph"><span class="ph__frame"></span><svg class="ph__icon" aria-hidden="true"><use href="#i-glow"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
-            </div>
-            <p class="mono" data-i18n="journal.meta1">Behandlung · 3 Min.</p>
-            <h3 class="h3" data-i18n="journal.1.title">BB Glow – was steckt dahinter?</h3>
-            <p class="jcard__text" data-i18n="journal.1.text">BB Glow ist eine semipermanente Teint-Behandlung: Getönte Seren werden per Microneedling sanft in die oberste Hautschicht eingearbeitet – für einen frischen, ebenmäßigeren Look.</p>
-            <span class="jcard__soon mono" data-i18n="journal.soon">Artikel folgt</span>
-          </article>
-          <article class="jcard reveal" style="--d:1">
-            <div class="media media--frame jcard__media" data-img="journal-2" data-alt="journal.alt2">
-              <div class="ph"><span class="ph__frame"></span><svg class="ph__icon" aria-hidden="true"><use href="#i-lashlift"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
-            </div>
-            <p class="mono" data-i18n="journal.meta2">Wimpern · 3 Min.</p>
-            <h3 class="h3" data-i18n="journal.2.title">Lashlift oder Lash Extensions – was passt zu dir?</h3>
-            <p class="jcard__text" data-i18n="journal.2.text">Der Lashlift bringt deine eigenen Wimpern in Form, Extensions verlängern und verdichten sie. Was besser passt, hängt von deinen Naturwimpern und deinem Alltag ab.</p>
-            <span class="jcard__soon mono" data-i18n="journal.soon">Artikel folgt</span>
-          </article>
-          <article class="jcard reveal" style="--d:2">
-            <div class="media media--frame jcard__media" data-img="journal-3" data-alt="journal.alt3">
-              <div class="ph"><span class="ph__frame"></span><svg class="ph__icon" aria-hidden="true"><use href="#i-needle"/></svg><span class="ph__cap" data-i18n="ph.photo">Foto folgt</span></div>
-            </div>
-            <p class="mono" data-i18n="journal.meta3">Pflege · 4 Min.</p>
-            <h3 class="h3" data-i18n="journal.3.title">Microneedling: Darauf solltest du vor und nach der Behandlung achten</h3>
-            <p class="jcard__text" data-i18n="journal.3.text">Vorher: in den Tagen davor auf Peelings und Retinol verzichten. Danach: sanfte Pflege, konsequenter Sonnenschutz und etwas Geduld, damit sich deine Haut gut erholen kann.</p>
-            <span class="jcard__soon mono" data-i18n="journal.soon">Artikel folgt</span>
-          </article>
-        </div>
-        <div class="center reveal">
-          <a class="btn btn--ink" href="https://www.instagram.com/melina_skinandbeauty/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg><span data-i18n="journal.cta">Mehr auf Instagram</span></a>
         </div>
       </div>
     </section>
@@ -620,7 +534,6 @@
           <span class="logo__sub">Skin &amp; Beauty</span>
         </a>
         <p class="mono footer__tag" data-i18n="brand.tagline">Kosmetikstudio · Ästhetik · Wohlbefinden</p>
-        <p class="footer__copy" data-i18n="footer.copy">© 2026 Melina Skin &amp; Beauty</p>
       </div>
       <div class="footer__cols">
         <div>
@@ -628,8 +541,8 @@
           <ul>
             <li><a href="#behandlungen" data-i18n="nav.treatments">Behandlungen</a></li>
             <li><a href="#ueber-mich" data-i18n="nav.about">Über mich</a></li>
-            <li><a href="#ergebnisse" data-i18n="nav.results">Ergebnisse</a></li>
             <li><a href="#preise" data-i18n="nav.prices">Preise</a></li>
+            <li><a href="#bewertungen" data-i18n="nav.reviews">Bewertungen</a></li>
             <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
           </ul>
         </div>
@@ -654,15 +567,17 @@
             <li><a href="impressum.html" data-i18n="footer.imprint">Impressum</a></li>
             <li><a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a></li>
           </ul>
-          <div class="lang-switch lang-switch--light footer__lang" role="group" data-i18n-aria="a11y.lang" aria-label="Sprache wählen">
-            <button type="button" data-lang="de" aria-pressed="true">DE</button>
-            <span aria-hidden="true">|</span>
-            <button type="button" data-lang="en" aria-pressed="false">EN</button>
-          </div>
         </div>
       </div>
     </div>
-    <div class="footer__mark" aria-hidden="true">Melina</div>
+    <div class="container footer__bottom">
+      <p class="footer__copy" data-i18n="footer.copy">© 2026 Melina Skin &amp; Beauty</p>
+      <div class="lang-switch lang-switch--light" role="group" data-i18n-aria="a11y.lang" aria-label="Sprache wählen">
+        <button type="button" data-lang="de" aria-pressed="true">DE</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
   </footer>
 
   <!-- Mobile sticky CTA -->
