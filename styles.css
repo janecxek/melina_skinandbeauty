@@ -1173,3 +1173,17 @@ p { text-wrap: pretty; }
   .rcard__media { aspect-ratio: auto; min-height: 100%; }
 }
 .rcard:nth-child(1) .rcard__oval > img { object-position: center 18%; }   /* microneedling: eye + cheek + lips */
+
+/* =========================================================
+   ROUND 9 – treatment arrows: left-aligned, more visible
+   ========================================================= */
+.cnav { justify-content: flex-start; gap: 12px; }      /* starts on the same x as heading and cards */
+.cnav__btn {
+  width: 56px; height: 56px;
+  background: var(--ink); color: var(--paper); border: 1px solid var(--ink);
+  box-shadow: 0 10px 24px -14px rgba(18,18,18,.6);
+}
+.cnav__btn .ico { width: 20px; height: 20px; stroke-width: 1.6; }
+.cnav__btn:hover:not(:disabled) { background: #3a3937; border-color: #3a3937; color: var(--white); transform: translateY(-2px); }
+.cnav__btn:disabled { opacity: 1; background: transparent; color: rgba(18,18,18,.35); border-color: rgba(18,18,18,.25); box-shadow: none; }
+@media (min-width: 1680px) { .cnav__btn { width: 62px; height: 62px; } }
